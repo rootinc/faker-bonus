@@ -1,0 +1,40 @@
+{
+  "name": "rootinc/faker-bonus",
+  "type": "library",
+  "description": "Bonus Faker Formatters for PHP",
+  "keywords": [
+    "PHP",
+    "Faker",
+    "fixtures",
+    "data",
+    "generator",
+    "generation",
+    "random",
+    "randomize"
+  ],
+  "homepage": "https://www.rootinc.com/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jared Rosenberg",
+      "email": "jrosenberg@rootinc.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "fzaninotto/faker": "~1.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rootinc\\FakerBonus\\": "src/FakerBonus"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Rootinc\\FakerBonus\\Tests\\": "tests/FakerBonus/Tests"
+    }
+  }
+}
