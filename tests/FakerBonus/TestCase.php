@@ -1,6 +1,6 @@
 <?php
 
-namespace Rootinc\Tests\FakerBonus\Provider;
+namespace Rootinc\Tests\FakerBonus;
 
 use Rootinc\FakerBonus\ProviderCollectionHelper;
 use Faker\Factory;
