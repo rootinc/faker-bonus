@@ -9,11 +9,21 @@ class Hashtag extends Base
 {
     protected $generator;
     protected $phrase;
+
+    /**
+     * List of modifications that can run on word set
+     * @var array
+     */
     private $modifiers = [
         'none',
         'capword',
         'capletter',
     ];
+
+    /**
+     * List of ways we can combine word set
+     * @var array
+     */
     private $glues = [
         '',
         '_',
@@ -27,25 +37,39 @@ class Hashtag extends Base
         parent::__construct($generator);
     }
 
+    /**
+     * "Bootstrap" method for Faker formatter.
+     *
+     * @param bool $include_tag
+     * @return string
+     */
     public function hashtag($include_tag = true): string
     {
         $tag = $this->build();
 
+        // Add "#" if needed
         $hashtag = !$include_tag ?: "#{$tag}";
 
         return $hashtag;
     }
 
+    /**
+     * Build a valid hashtag "phrase"
+     *
+     * @return string
+     */
     protected function build(): string
     {
         // Get set of words
         $words = explode(' ', $this->phrase);
+
         // Grab random modifier to affect each word
         $modifier = $this->modifiers[array_rand($this->modifiers)];
+
         // Grab random glue to implode words
         $glue = $this->glues[array_rand($this->glues)];
 
-        //
+        // Clean and run modifier on all words
         $modified_words = array_map(function($word) use($modifier){
             // Remove any non-alphanumeric & underscores
             $clean_word = preg_replace('/[\W]/u', '', $word);
@@ -59,6 +83,13 @@ class Hashtag extends Base
         return $tag;
     }
 
+    /**
+     * Run a modification on a string
+     *
+     * @param $modifier
+     * @param $string
+     * @return string
+     */
     private function modify($modifier, $string): string
     {
         switch ($modifier) {
