@@ -11,17 +11,19 @@ class Hashtag extends Base
     protected $phrase;
     private $modifiers = [
         'none',
-        'underscore',
         'capword',
         'capletter',
-        'number'
+    ];
+    private $glues = [
+        '',
+        '_',
     ];
 
     public function __construct(Generator $generator)
     {
         $this->generator = $generator;
         $this->phrase = $this->generator->bs;
-        
+
         parent::__construct($generator);
     }
 
@@ -38,22 +40,21 @@ class Hashtag extends Base
     {
         // Get set of words
         $words = explode(' ', $this->phrase);
-        $word_count = count($words);
-        // Clean
-        $modified_words = array_map(function($i, $word) use($word_count){
-            $last_word = $i === $word_count - 1;
+        // Grab random modifier to affect each word
+        $modifier = $this->modifiers[array_rand($this->modifiers)];
+        // Grab random glue to implode words
+        $glue = $this->glues[array_rand($this->glues)];
+
+        //
+        $modified_words = array_map(function($word) use($modifier){
             // Remove any non-alphanumeric & underscores
             $clean_word = preg_replace('/[\W]/u', '', $word);
-            if(!$last_word) {
-                $modifier = $this->modifiers[array_rand($this->modifiers)];
-                $clean_word = $this->modify($modifier, $clean_word);
-            }
+            $clean_word = $this->modify($modifier, $clean_word);
 
             return $clean_word;
-        }, array_keys($words), $words);
+        }, $words);
 
-        $tag = implode('', $modified_words);
-        var_dump($tag);
+        $tag = implode($glue, $modified_words);
 
         return $tag;
     }
@@ -61,18 +62,11 @@ class Hashtag extends Base
     private function modify($modifier, $string): string
     {
         switch ($modifier) {
-            case 'underscore':
-                $string = "{$string}_";
-                break;
             case 'capword':
                 $string = strtoupper($string);
                 break;
             case 'capletter':
                 $string = ucfirst($string);
-                break;
-            case 'number':
-                $number = rand(0,9);
-                $string = "{$string}{$number}";
                 break;
             default:
                 break;
