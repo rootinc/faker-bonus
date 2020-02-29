@@ -7,10 +7,18 @@ use Rootinc\Tests\FakerBonus\TestCase;
 class HashtagTest extends TestCase
 {
     /**
-     * @test
+     * @test Formatter is valid with hashtag option = true (default)
      */
-    public function hashtag_is_valid()
+    public function valid_with_hashtag()
     {
         $this->assertRegExp('/\#[\w]/', $this->faker->hashtag);
+    }
+
+    /**
+     * @test Formatter is valid with hashtag option = false
+     */
+    public function valid_without_hashtag()
+    {
+        $this->assertRegExp('/[\w]/', $this->faker->hashtag(false));
     }
 }
