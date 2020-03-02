@@ -49,4 +49,20 @@ public function register() {
 
 ### Hashtag
 
+Builds off `$faker->bs` to build some fun hashtags like: `#FacilitateScalableSynergies` `#EXPLOIT_CUTTINGEDGE_EYEBALLS` `#disintermediate_onetoone_markets`.
+
+```
+$faker->hashtag // '#this_is_fun'
+$faker->hashtag(false) // 'this_is_fun'
+
+```
+
 ### Mention
+
+Builds off `$faker->userName` to create handle-ish mentions like: `@BSCHADEN` `@Irolfson` `@bartoletti.barbara`
+
+```
+$faker->mention // '@SomeBody'
+$faker->mention(false) // 'SomeBody'
+
+```
