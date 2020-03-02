@@ -1,6 +1,9 @@
 # faker-bonus
 
-[![Codeship Status for rootinc/faker-bonus](https://app.codeship.com/projects/3d1428a0-3f07-0138-f2a1-0a35e539f0bc/status?branch=develop)](https://app.codeship.com/projects/387568)
+[![Codeship Status for rootinc/faker-bonus](https://app.codeship.com/projects/3d1428a0-3f07-0138-f2a1-0a35e539f0bc/status?branch=master)](https://app.codeship.com/projects/387568)
+
+A handy set of Providers for [fzaninotto/faker](https://github.com/fzaninotto/faker). Built to integrate with Laravel or
+any PHP project that uses Faker.
 
 ## Contents
 1. [Installation](#installation) 
