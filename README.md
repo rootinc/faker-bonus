@@ -1,3 +1,6 @@
+#faker-bonus
+[![Codeship Status for rootinc/faker-bonus](https://app.codeship.com/projects/3d1428a0-3f07-0138-f2a1-0a35e539f0bc/status?branch=develop)](https://app.codeship.com/projects/387568)
+
 ## Contents
 1. [Installation](#installation) 
 1. [Usage](#basic-usage) 
