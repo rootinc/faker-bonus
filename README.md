@@ -37,7 +37,7 @@ $faker->hashtag;
 
 ### Laravel Usage
 
-We can have Providers/Formatters added to all instances of Faker\Generator by updating our `AppServiceProvier` as follows:
+We can have Providers/Formatters added to all instances of `Faker\Generator` by updating our `AppServiceProvier` as follows:
 
 #### All Providers
 
