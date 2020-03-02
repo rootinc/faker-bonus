@@ -46,7 +46,7 @@ class Hashtag extends Base
     public function hashtag($include_tag = true): string
     {
         $this->phrase = $this->generator->bs;
-        
+
         $tag = $this->build();
 
         // Add "#" if needed
