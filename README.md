@@ -7,7 +7,7 @@
 ## Installation
 
 ```bash
-composer install rootinc/faker=bonus
+composer install rootinc/faker-bonus
 ```
 
 ## Basic Usage
