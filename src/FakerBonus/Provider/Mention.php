@@ -34,7 +34,6 @@ class Mention extends Base
     public function __construct(Generator $generator)
     {
         $this->generator = $generator;
-        $this->user_name = $this->generator->userName;
 
         parent::__construct($generator);
     }
@@ -47,6 +46,8 @@ class Mention extends Base
      */
     public function mention($include_at = true): string
     {
+        $this->user_name = $this->generator->userName;
+
         $mention = $this->build();
 
         // Add "@" if needed

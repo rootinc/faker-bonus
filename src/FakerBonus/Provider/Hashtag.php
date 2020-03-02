@@ -33,7 +33,6 @@ class Hashtag extends Base
     public function __construct(Generator $generator)
     {
         $this->generator = $generator;
-        $this->phrase = $this->generator->bs;
 
         parent::__construct($generator);
     }
@@ -46,6 +45,8 @@ class Hashtag extends Base
      */
     public function hashtag($include_tag = true): string
     {
+        $this->phrase = $this->generator->bs;
+        
         $tag = $this->build();
 
         // Add "#" if needed
