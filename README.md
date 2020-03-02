@@ -3,6 +3,8 @@
 1. [Usage](#basic-usage) 
     1. [Basic Usage](#basic-usage) 
     1. [Laravel Installation](#laravel-usage) 
+1. [Testing](#testing)
+1. [Acknowledgements](#acknowledgement)
 
 ## Installation
 
@@ -81,3 +83,14 @@ $faker->mention // '@SomeBody'
 $faker->mention(false) // 'SomeBody'
 
 ```
+
+## Testing
+
+```bash
+composer install
+vendor/bin/phpunit
+```
+
+## Acknowledgements
+
+- Influenced by: [mbezhanov/faker-provider-collection](https://github.com/mbezhanov/faker-provider-collection)
