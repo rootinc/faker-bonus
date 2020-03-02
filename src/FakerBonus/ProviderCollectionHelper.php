@@ -10,5 +10,6 @@ class ProviderCollectionHelper
     public static function addAllProvidersTo(Generator $faker)
     {
         $faker->addProvider(new Provider\Hashtag($faker));
+        $faker->addProvider(new Provider\Mention($faker));
     }
 }

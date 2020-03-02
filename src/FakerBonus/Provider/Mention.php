@@ -5,10 +5,10 @@ namespace Rootinc\FakerBonus\Provider;
 use Faker\Generator;
 use Faker\Provider\Base;
 
-class Hashtag extends Base
+class Mention extends Base
 {
     protected $generator;
-    protected $phrase;
+    protected $user_name;
 
     /**
      * List of modifications that can run on word set
@@ -27,13 +27,14 @@ class Hashtag extends Base
      */
     private $glues = [
         '',
+        '.',
         '_',
     ];
 
     public function __construct(Generator $generator)
     {
         $this->generator = $generator;
-        $this->phrase = $this->generator->bs;
+        $this->user_name = $this->generator->userName;
 
         parent::__construct($generator);
     }
@@ -41,19 +42,19 @@ class Hashtag extends Base
     /**
      * "Bootstrap" method for Faker formatter.
      *
-     * @param bool $include_tag
+     * @param bool $include_at
      * @return string
      */
-    public function hashtag($include_tag = true): string
+    public function mention($include_at = true): string
     {
-        $tag = $this->build();
+        $mention = $this->build();
 
-        // Add "#" if needed
-        $hashtag = $include_tag
-            ? "#{$tag}"
-            : $tag;
+        // Add "@" if needed
+        $mention = $include_at
+            ? "@{$mention}"
+            : $mention;
 
-        return $hashtag;
+        return $mention;
     }
 
     /**
@@ -63,27 +64,27 @@ class Hashtag extends Base
      */
     protected function build(): string
     {
-        // Get set of words
-        $words = explode(' ', $this->phrase);
+        // Get set of username pieces
+        $mention_pieces = explode('.', $this->user_name);
 
-        // Grab random modifier to affect each word
+        // Grab random modifier to affect each piece
         $modifier = $this->modifiers[array_rand($this->modifiers)];
 
-        // Grab random glue to implode words
+        // Grab random glue to implode pieces
         $glue = $this->glues[array_rand($this->glues)];
 
-        // Clean and run modifier on all words
-        $modified_words = array_map(function($word) use($modifier){
+        // Clean and run modifier on all pieces
+        $modified_pieces = array_map(function($piece) use($modifier){
             // Remove any non-alphanumeric & underscores
-            $clean_word = preg_replace('/[\W]/u', '', $word);
-            $clean_word = $this->modify($modifier, $clean_word);
+            $clean_piece = preg_replace('/[\W\.]/u', '', $piece);
+            $clean_piece = $this->modify($modifier, $clean_piece);
 
-            return $clean_word;
-        }, $words);
+            return $clean_piece;
+        }, $mention_pieces);
 
-        $tag = $this->glue($glue, $modified_words);
+        $mention = $this->glue($glue, $modified_pieces);
 
-        return $tag;
+        return $mention;
     }
 
     /**
