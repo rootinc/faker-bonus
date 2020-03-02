@@ -11,7 +11,8 @@ class HashtagTest extends TestCase
      */
     public function valid_with_hashtag()
     {
-        $this->assertRegExp('/\#[\w]/', $this->faker->hashtag);
+        $hashtag = $this->faker->hashtag;
+        $this->assertRegExp('/\#[\w]/', $hashtag);
     }
 
     /**
@@ -19,6 +20,8 @@ class HashtagTest extends TestCase
      */
     public function valid_without_hashtag()
     {
-        $this->assertRegExp('/[\w]/', $this->faker->hashtag(false));
+        $hashtag = $this->faker->hashtag(false);
+        $this->assertRegExp('/[\w]/', $hashtag);
     }
+
 }

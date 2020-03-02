@@ -18,6 +18,7 @@ class Hashtag extends Base
         'none',
         'capword',
         'capletter',
+        'lowerword',
     ];
 
     /**
@@ -45,6 +46,8 @@ class Hashtag extends Base
      */
     public function hashtag($include_tag = true): string
     {
+        $this->phrase = $this->generator->bs;
+
         $tag = $this->build();
 
         // Add "#" if needed
@@ -78,7 +81,7 @@ class Hashtag extends Base
             return $clean_word;
         }, $words);
 
-        $tag = implode($glue, $modified_words);
+        $tag = $this->glue($glue, $modified_words);
 
         return $tag;
     }
@@ -90,7 +93,7 @@ class Hashtag extends Base
      * @param $string
      * @return string
      */
-    private function modify($modifier, $string): string
+    protected function modify($modifier, $string): string
     {
         switch ($modifier) {
             case 'capword':
@@ -99,11 +102,26 @@ class Hashtag extends Base
             case 'capletter':
                 $string = ucfirst($string);
                 break;
+            case 'lowerword':
+                $string = strtolower($string);
+                break;
             default:
                 break;
         }
 
         return $string;
+    }
+
+    /**
+     * Glue together a set of strings
+     *
+     * @param $glue
+     * @param $words
+     * @return string
+     */
+    protected function glue($glue, $words): string
+    {
+        return implode($glue, $words);
     }
 
 }
