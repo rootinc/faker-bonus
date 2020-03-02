@@ -75,7 +75,7 @@ class Mention extends Base
 
         // Clean and run modifier on all pieces
         $modified_pieces = array_map(function($piece) use($modifier){
-            // Remove any non-alphanumeric & underscores
+            // Remove any non-alphanumeric & underscores & dots
             $clean_piece = preg_replace('/[\W\.]/u', '', $piece);
             $clean_piece = $this->modify($modifier, $clean_piece);
 
