@@ -15,22 +15,24 @@ composer install rootinc/faker=bonus
 We can add new Providers directly to the Faker instance before we use it:
 #### All Providers
 
-```
+```php
+<?php
 $faker = Faker\Factory::create();
 ProviderCollectionHelper::addAllProvidersTo($faker);
 // Use Faker
-$faker->hashtag
+$faker->hashtag;
 ```
 
 #### Specific Provider/s
-```
+```php
+<?php
 $faker = Faker\Factory::create();
 $faker->addProvider(new Provider\Hashtag($faker));
-...
+//...
 // Add more Providers 
-...
+//...
 // Use Faker
-$faker->hashtag
+$faker->hashtag;
 ```
 
 ### Laravel Installation
@@ -40,12 +42,13 @@ We can have Providers/Formatters added to all instances of Faker\Generator by up
 #### All Providers
 
 app/Providers/AppServiceProvider.php
-```
+```php
+<?php
+
 use Faker\Generator;
-...
 
 public function register() {
-  ...
+  //...
   // Whenever Faker\Generator is called, substitute the return value of this block
   $this->app->extend(Generator::class, function ($generator) {
       // Add Providers to the Faker\Generator class
@@ -53,7 +56,7 @@ public function register() {
       // Return modified Faker\Generator
       return $generator;
   });
-  ...
+  //...
 }
 ```
 
@@ -63,7 +66,7 @@ public function register() {
 
 Builds off `$faker->bs` to build some fun hashtags like: `#FacilitateScalableSynergies` `#EXPLOIT_CUTTINGEDGE_EYEBALLS` `#disintermediate_onetoone_markets`.
 
-```
+```php
 $faker->hashtag // '#this_is_fun'
 $faker->hashtag(false) // 'this_is_fun'
 
@@ -73,7 +76,7 @@ $faker->hashtag(false) // 'this_is_fun'
 
 Builds off `$faker->userName` to create handle-ish mentions like: `@BSCHADEN` `@Irolfson` `@bartoletti.barbara`
 
-```
+```php
 $faker->mention // '@SomeBody'
 $faker->mention(false) // 'SomeBody'
 
