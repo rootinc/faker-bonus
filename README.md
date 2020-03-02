@@ -1,7 +1,19 @@
-## General Installation
+## Contents
+1. [Installation](#installation) 
+1. [Usage](#basic-usage) 
+    1. [Basic Usage](#basic-usage) 
+    1. [Laravel Installation](#laravel-installation) 
+
+## Installation
+
+```bash
+composer install rootinc/faker=bonus
+```
+
+## Basic Usage
 
 We can add new Providers directly to the Faker instance before we use it:
-### Add All Providers
+#### All Providers
 
 ```
 $faker = Faker\Factory::create();
@@ -10,7 +22,7 @@ ProviderCollectionHelper::addAllProvidersTo($faker);
 $faker->hashtag
 ```
 
-### Add Specific Provider/s
+#### Specific Provider/s
 ```
 $faker = Faker\Factory::create();
 $faker->addProvider(new Provider\Hashtag($faker));
@@ -21,11 +33,11 @@ $faker->addProvider(new Provider\Hashtag($faker));
 $faker->hashtag
 ```
 
-## Laravel Installation
+### Laravel Installation
 
 We can have Providers/Formatters added to all instances of Faker\Generator by updating our `AppServiceProvier` as follows:
 
-### Add All Providers
+#### All Providers
 
 app/Providers/AppServiceProvider.php
 ```
@@ -45,7 +57,7 @@ public function register() {
 }
 ```
 
-## Usage
+## Formatters
 
 ### Hashtag
 
