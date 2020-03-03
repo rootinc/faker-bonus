@@ -20,13 +20,13 @@ class TweetTextTest extends TestCase
         $this->assertCount(1, $paragraph_set);
 
         // Has hashtag
-        $this->assertRegExp('/\#[\w]{3,}/', $tweet_text);
+        $this->assertRegExp($this->hashtagRegex(), $tweet_text);
 
         // Has mention
-        $this->assertRegExp('/\@[\w]{3,}/', $tweet_text);
+        $this->assertRegExp($this->mentionRegex(), $tweet_text);
 
         // Has emoji
-        $result = preg_match('/[\p{So}]/u', $tweet_text);
+        $result = preg_match($this->emojiRegex(), $tweet_text);
         $this->assertTrue(!!$result);
     }
 
@@ -41,13 +41,13 @@ class TweetTextTest extends TestCase
         $this->assertCount(4, $paragraph_set);
 
         // Has hashtag
-        $this->assertRegExp('/\#[\w]{3,}/', $tweet_text);
+        $this->assertRegExp($this->hashtagRegex(), $tweet_text);
 
         // Has mention
-        $this->assertRegExp('/\@[\w]{3,}/', $tweet_text);
+        $this->assertRegExp($this->mentionRegex(), $tweet_text);
 
         // Has emoji
-        $result = preg_match('/[\p{So}]/u', $tweet_text);
+        $result = preg_match($this->emojiRegex(), $tweet_text);
         $this->assertTrue(!!$result);
     }
 
@@ -62,13 +62,14 @@ class TweetTextTest extends TestCase
         $this->assertCount(1, $paragraph_set);
 
         // Has hashtag
-        $this->assertRegExp('/\#[\w]{3,}/', $tweet_text);
+        $this->assertRegExp($this->hashtagRegex(), $tweet_text);
 
         // Has mention
-        $this->assertRegExp('/\@[\w]{3,}/', $tweet_text);
+        $this->assertRegExp($this->mentionRegex(), $tweet_text);
 
-        // No emoji
-        $result = preg_match('/[\p{So}]/u', $tweet_text);
+        // Has emoji
+        $result = preg_match($this->emojiRegex(), $tweet_text);
         $this->assertFalse(!!$result);
     }
+
 }

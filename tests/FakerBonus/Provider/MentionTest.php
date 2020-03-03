@@ -12,7 +12,7 @@ class MentionTest extends TestCase
     public function valid_with_at()
     {
         $mention = $this->faker->mention;
-        $this->assertRegExp('/\@[\w\.]{3,}/', $mention);
+        $this->assertRegExp($this->mentionRegex(), $mention);
     }
 
     /**
@@ -21,7 +21,7 @@ class MentionTest extends TestCase
     public function valid_without_at()
     {
         $mention = $this->faker->mention(false);
-        $this->assertRegExp('/[\w\.]{3,}/', $mention);
+        $this->assertNotRegExp($this->mentionRegex(), $mention);
     }
 
 }
