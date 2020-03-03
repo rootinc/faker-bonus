@@ -77,7 +77,7 @@ public function register() {
 
 ### Hashtag
 
-Builds off `$faker->bs` to build some fun hashtags like: `#FacilitateScalableSynergies` `#EXPLOIT_CUTTINGEDGE_EYEBALLS` `#disintermediate_onetoone_markets`.
+Build some fun hashtags.
 
 #### Definition
 ```php
@@ -92,7 +92,7 @@ $faker->hashtag(false) // 'this_is_fun'
 
 ### Mention
 
-Builds off `$faker->userName` to create handle-ish mentions like: `@BSCHADEN` `@Irolfson` `@bartoletti.barbara`
+Builds handle-ish mentions.
 
 #### Definition
 ```php
@@ -100,14 +100,14 @@ $faker->mention($includeAt = true)
 ```
 #### Usage
 ```php
-$faker->mention // '@SomeBody'
-$faker->mention(false) // 'SomeBody'
+$faker->mention // '@bartoletti.barbara'
+$faker->mention(false) // 'bartoletti.barbara'
 
 ```
 
 ### Tweet Text
 
-Create tweet-like text like: `@BSCHADEN The a my were anchors for consider that one man perfectly. 😀 #EXPLOIT_CUTTINGEDGE_EYEBALLS`
+Create tweet-like text.
 
 #### Definition
 ```php
