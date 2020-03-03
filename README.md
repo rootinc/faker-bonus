@@ -2,7 +2,7 @@
 
 [![Codeship Status for rootinc/faker-bonus](https://app.codeship.com/projects/3d1428a0-3f07-0138-f2a1-0a35e539f0bc/status?branch=master)](https://app.codeship.com/projects/387568)
 
-A handy set of Providers for [fzaninotto/faker](https://github.com/fzaninotto/faker). Built to integrate with Laravel or
+A handy set of extra Faker Formatters/Providers for [fzaninotto/faker](https://github.com/fzaninotto/faker) built to integrate with Laravel or
 any PHP project that uses Faker.
 
 ## Contents
@@ -16,7 +16,7 @@ any PHP project that uses Faker.
 ## Installation
 
 ```bash
-composer install rootinc/faker-bonus
+composer install rootinc/faker-bonus --dev
 ```
 
 ## Usage
