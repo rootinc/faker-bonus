@@ -11,5 +11,6 @@ class ProviderCollectionHelper
     {
         $faker->addProvider(new Provider\Hashtag($faker));
         $faker->addProvider(new Provider\Mention($faker));
+        $faker->addProvider(new Provider\TweetText($faker));
     }
 }

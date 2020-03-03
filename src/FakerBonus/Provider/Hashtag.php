@@ -40,17 +40,17 @@ class Hashtag extends Base
     /**
      * "Bootstrap" method for Faker formatter.
      *
-     * @param bool $include_tag
+     * @param bool $includeTag
      * @return string
      */
-    public function hashtag($include_tag = true): string
+    public function hashtag($includeTag = true): string
     {
         $this->phrase = $this->generator->bs;
 
         $tag = $this->build();
 
         // Add "#" if needed
-        $hashtag = $include_tag
+        $hashtag = $includeTag
             ? "#{$tag}"
             : $tag;
 

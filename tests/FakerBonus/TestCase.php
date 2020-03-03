@@ -14,4 +14,19 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         $this->faker = Factory::create();
         ProviderCollectionHelper::addAllProvidersTo($this->faker);
     }
+
+    protected function hashtagRegex()
+    {
+        return '/\#[\w]{3,}/';
+    }
+
+    protected function mentionRegex()
+    {
+        return '/\@[\w\.]{3,}/';
+    }
+
+    protected function emojiRegex()
+    {
+        return '/[\p{So}]/u';
+    }
 }

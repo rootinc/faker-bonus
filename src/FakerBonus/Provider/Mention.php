@@ -41,17 +41,17 @@ class Mention extends Base
     /**
      * "Bootstrap" method for Faker formatter.
      *
-     * @param bool $include_at
+     * @param bool $includeAt
      * @return string
      */
-    public function mention($include_at = true): string
+    public function mention($includeAt = true): string
     {
         $this->user_name = $this->generator->userName;
 
         $mention = $this->build();
 
         // Add "@" if needed
-        $mention = $include_at
+        $mention = $includeAt
             ? "@{$mention}"
             : $mention;
 
