@@ -75,6 +75,11 @@ public function register() {
 
 Builds off `$faker->bs` to build some fun hashtags like: `#FacilitateScalableSynergies` `#EXPLOIT_CUTTINGEDGE_EYEBALLS` `#disintermediate_onetoone_markets`.
 
+#### Definition
+```php
+$faker->hashtag($includeTag = true)
+```
+#### Usage
 ```php
 $faker->hashtag // '#this_is_fun'
 $faker->hashtag(false) // 'this_is_fun'
@@ -85,10 +90,30 @@ $faker->hashtag(false) // 'this_is_fun'
 
 Builds off `$faker->userName` to create handle-ish mentions like: `@BSCHADEN` `@Irolfson` `@bartoletti.barbara`
 
+#### Definition
+```php
+$faker->mention($includeAt = true)
+```
+#### Usage
 ```php
 $faker->mention // '@SomeBody'
 $faker->mention(false) // 'SomeBody'
 
+```
+
+### Tweet Text
+
+Create tweet-like text like: `@BSCHADEN The a my were anchors for consider that one man perfectly. 😀 #EXPLOIT_CUTTINGEDGE_EYEBALLS`
+
+#### Definition
+```php
+$faker->tweetText($nbParagraphs = 1, $includeEmoji = true)
+```
+#### Usage
+```php
+$faker->tweetText // '@BSCHADEN The a my were anchors for consider that one man perfectly. 😀 #EXPLOIT_CUTTINGEDGE_EYEBALLS'
+$faker->tweetText(2) // @BSCHADEN The a my were anchors for consider that one man perfectly.\n Created, rung and over flows let four it lane.😀 #EXPLOIT_CUTTINGEDGE_EYEBALLS
+$faker->tweetText(3, false) // @BSCHADEN The a my were anchors for consider that one man perfectly.\n\n Created, rung and over flows let four it lane.\n\n Created, rung and over flows let four it lane. #EXPLOIT_CUTTINGEDGE_EYEBALLS
 ```
 
 ## Testing
