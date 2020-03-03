@@ -13,7 +13,7 @@ any PHP project that uses Faker.
 1. [Formatters](#formatters)
     1. [Hashtag](#hashtag) 
     1. [Mention](#mention) 
-    1. [TweetText](#tweet-text) 
+    1. [Tweet Text](#tweet-text) 
 1. [Testing](#testing)
 1. [Acknowledgements](#acknowledgement)
 
@@ -116,7 +116,7 @@ $faker->tweetText($nbParagraphs = 1, $includeEmoji = true)
 #### Usage
 ```php
 $faker->tweetText // '@BSCHADEN The a my were anchors for consider that one man perfectly. 😀 #EXPLOIT_CUTTINGEDGE_EYEBALLS'
-$faker->tweetText(2) // '@BSCHADEN The a my were anchors for consider that one man perfectly.\n Created, rung and over flows let four it lane.😀 #EXPLOIT_CUTTINGEDGE_EYEBALLS'
+$faker->tweetText(2) // '@BSCHADEN The a my were anchors for consider that one man perfectly.\n\n Created, rung and over flows let four it lane.😀 #EXPLOIT_CUTTINGEDGE_EYEBALLS'
 $faker->tweetText(3, false) // '@BSCHADEN The a my were anchors for consider that one man perfectly.\n\n Created, rung and over flows let four it lane.\n\n Created, rung and over flows let four it lane. #EXPLOIT_CUTTINGEDGE_EYEBALLS'
 ```
 
