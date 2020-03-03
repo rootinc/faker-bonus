@@ -19,12 +19,13 @@ class TweetText extends Base
     /**
      * "Bootstrap" method for Faker formatter.
      *
-     * @param boolean $include_emoji
+     * @param integer $nbParagraphs
+     * @param boolean $includeEmoji
      * @return string
      */
-    public function tweetText($include_emoji = false): string
+    public function tweetText($nbParagraphs = 1, $includeEmoji = true): string
     {
-        $tweet_text = $this->build($include_emoji);
+        $tweet_text = $this->build($nbParagraphs, $includeEmoji);
 
         return $tweet_text;
     }
@@ -32,18 +33,29 @@ class TweetText extends Base
     /**
      * Build a valid tweet "phrase"
      *
-     * @param boolean $include_emoji
+     * @param integer $nbParagraphs
+     * @param boolean $includeEmoji
      * @return string
      */
-    protected function build($include_emoji): string
+    protected function build($nbParagraphs, $includeEmoji): string
     {
-        // Add whitespace only when we give variables values
-        $sentences = $this->generator->sentences(3, true) . ' ';
-        $mentions = $this->generator->mention . ' ';
-        $hashtags = $this->generator->hashtag . ' ';
-        $emoji = $include_emoji ? $this->generator->emoji . ' ' : '';
+        // Create pieces
+        $sentences = $this->generator->paragraphs($nbParagraphs, true);
+        $mentions = $this->generator->mention;
+        $emoji = $includeEmoji ? $this->generator->emoji : null;
+        $hashtags = $this->generator->hashtag;
 
-        $tweet_text = "{$mentions}{$sentences}{$emoji}{$hashtags}";
+        // Filter out anything without a value
+        $pieces = array_filter([
+            $mentions,
+            $sentences,
+            $emoji,
+            $hashtags
+        ], function($piece){
+            return !empty($piece);
+        });
+
+        $tweet_text = implode(' ', $pieces);
 
         return $tweet_text;
     }
