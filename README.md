@@ -10,6 +10,10 @@ any PHP project that uses Faker.
 1. [Usage](#basic-usage) 
     1. [Basic Usage](#basic-usage) 
     1. [Laravel Installation](#laravel-usage) 
+1. [Formatters](#formatters)
+    1. [Hashtag](#hashtag) 
+    1. [Mention](#mention) 
+    1. [TweetText](#tweet-text) 
 1. [Testing](#testing)
 1. [Acknowledgements](#acknowledgement)
 
